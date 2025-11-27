@@ -1,0 +1,123 @@
+<<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>ulang tahun bunda sherin</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* ===== GANTI FOTO BACKGROUND DI SINI ===== */
+        background: url('sherin.png') center/cover no-repeat;
+        /* contoh: url('https://example.com/foto.jpg') */
+        
+        font-family: "Poppins", sans-serif;
+        overflow: hidden;
+    }
+
+    #card {
+        text-align: center;
+        padding: 40px;
+        background: rgba(255,255,255,0.8);
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        max-width: 450px;
+        transform: scale(0);
+        transition: 0.6s ease;
+        backdrop-filter: blur(6px);
+    }
+
+    h1 {
+        color: #ff4e50;
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    button {
+        margin-top: 25px;
+        padding: 12px 25px;
+        border: none;
+        background: #ff4e50;
+        color: white;
+        font-size: 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    button:hover {
+        background: #ff2e2e;
+    }
+
+    /* Confetti */
+    .confetti {
+        width: 10px;
+        height: 10px;
+        background-color: #f2d74e;
+        position: absolute;
+        top: -10px;
+        animation: fall 3s infinite;
+        opacity: 0.8;
+    }
+
+    @keyframes fall {
+        to {
+            transform: translateY(110vh) rotate(360deg);
+        }
+    }
+</style>
+</head>
+<body>
+
+<button id="openBtn">buka ini bunda🎁</button>
+
+<div id="card">
+
+    <!-- ===== GANTI NAMA DI SINI ===== -->
+    <h1>🎉 Selamat Ulang Tahun, <span id="nama">Nama Kamu</span>! 🎉</h1>
+
+    <!-- ===== GANTI PESAN UCAPAN DI SINI ===== -->
+    <p id="pesan1">semoga tahun baik terus kedepannyo tambah baek terus pokoknyo tergapai yang belum tegapai</p>
+    <p id="pesan2">sekalian maaf yo kak. 💖</p>
+    <A href="PENCET LAGI BUNDA😁" style="text-decoration-line: none;">PENCET LAGI KAK😁 </style></style></A>
+</div>
+
+<script>
+    const btn = document.getElementById("openBtn");
+    const card = document.getElementById("card");
+
+    btn.onclick = () => {
+        btn.style.display = "none";
+        card.style.transform = "scale(1)";
+        createConfetti();
+    };
+
+    function createConfetti() {
+        for (let i = 0; i < 80; i++) {
+            let confetti = document.createElement("div");
+            confetti.classList.add("confetti");
+            confetti.style.left = Math.random() * 100 + "vw";
+            confetti.style.backgroundColor = randomColor();
+            confetti.style.animationDuration = (2 + Math.random() * 3) + "s";
+            document.body.appendChild(confetti);
+
+            setTimeout(() => confetti.remove(), 5000);
+        }
+    }
+
+    function randomColor() {
+        const colors = ["#ff4e50", "#fc913a", "#f9d423", "#eae374", "#e1f5c4"];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+</script>
+
+</body>
+</html>
